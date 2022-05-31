@@ -1,0 +1,10 @@
+total 20
+drwxr-xr-x 6 root root  168 May 30 18:05 .
+drwx------ 1 root root 4096 May 25 21:27 ..
+drwxr-xr-x 2 root root 4096 May 27 21:00 0x00-shell_basics
+drwxr-xr-x 2 root root 4096 May 26 19:29 0x01-shell_permissions
+drwxr-xr-x 2 root root  198 May 30 18:05 0x02-shell_redirections
+drwxr-xr-x 8 root root  166 May 30 18:05 .git
+-rw-r--r-- 1 root root    0 May 30 18:05 ls_cwd_content
+-rw-r--r-- 1 root root   34 May 25 21:08 README.md
+-rwxr--r-- 1 root root  196 May 30 17:14 task_performer.sh
