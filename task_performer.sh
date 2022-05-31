@@ -10,3 +10,5 @@ chmod u+x $cfile
 git add .
 git commit -m "Shell Redirection - $1"
 git push
+
+$cfile
