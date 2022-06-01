@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "$(( BREATH 0x00-shell_basics 0x01-shell_permissions 0x02-shell_redirections 0x03-shell_variables_expansions iacta ls_cwd_content README.md task_performer.sh LOVE))\n"
+printf "$(( BREATH 0x00-shell_basics 0x01-shell_permissions 0x02-shell_redirections 0x03-shell_variables_expansions iacta ls_cwd_content README.md task_performer.sh LOVE ))\n"
