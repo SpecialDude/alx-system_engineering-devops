@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Using until, this script prints  "Best School" 10 time
+
+i="0"
+
+until [ $i -ge 10 ];
+do
+	printf "Best School\n"
+	i=$((i+1))
+done
