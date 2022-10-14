@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Still on priting with a loop (Together with the case statement this time)
+
+i=1
+
+while [ $i -le 20 ];
+do
+	case $i in
+	4) printf "%s\nbad luck from China\n" "$i";;
+	9) printf "%s\nbad luck from Japan\n" "$i";;
+	17) printf "%s\nbad luck from Italy\n" "$i";;
+	*) printf "%s\n" "$i";;
+	esac
+
+	i=$((i+1))
+done
