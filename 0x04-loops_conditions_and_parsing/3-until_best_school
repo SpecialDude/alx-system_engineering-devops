@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-# Using until, this script prints  "Best School" 10 time
+# Using until, this script prints  "Best School" 10 times
 
 i="0"
 
