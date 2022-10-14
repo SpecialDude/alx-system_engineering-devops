@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script works on clock cycle
+
+hour=0
+minute=0
+
+while [ $hour -le 12 ] || [ $minute -lt 60 ];
+do
+	if [ $((minute%60)) = 0 ];
+	then
+		echo "Hour: $hour"
+		hour=$((hour+1))
+		minute=0
+	else
+		echo "$minute"
+	fi
+
+	minute=$((minute+1))
+done
