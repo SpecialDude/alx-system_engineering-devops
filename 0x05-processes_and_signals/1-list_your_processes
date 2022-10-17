@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displays all processes
 
-ps -faux
+ps -axjf
