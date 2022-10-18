@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * infinite_while - Loops infinitely
@@ -30,7 +31,7 @@ int main(void)
 		zombie = fork();
 
 		if (zombie == 0)
-			return (0)
+			return (0);
 
 		printf("Zombie process created, PID: %d\n", zombie);
 	}
