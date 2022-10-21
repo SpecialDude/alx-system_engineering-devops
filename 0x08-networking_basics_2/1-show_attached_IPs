@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Prints all IPv4 address
+
+ip -o -4 address | awk '{print $4}' | cut -d / -f 1
