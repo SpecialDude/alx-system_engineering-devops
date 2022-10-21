@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Creates a socket
+
+nc -l -p 98
