@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# SSH client Configuration
+
+IdentityFile ~/.ssh/school
+
+IdentitiesOnly yes
