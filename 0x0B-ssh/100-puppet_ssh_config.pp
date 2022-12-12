@@ -1,5 +1,7 @@
 # Makes an ssh configuration file
 
+include stdlib
+
 file { 'ssh configuration':
   ensure => present,
   path   => '2-ssh_config',
