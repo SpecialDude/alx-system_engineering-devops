@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 
+# Install apache2 if not already installed
+apt-get install apache2
+
+# Update the welcome page for the desired response
 echo "Hello Holberton" > /var/www/html/index.html
+
+# Restart the server
 /etc/init.d/apache2 restart
