@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# This Scripts configures Nginx on a Web Server
+
+config_file="/etc/nginx/nginx.conf"
+root_path="/data/www/"
+
+config_content=$(cat << EOF
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+	server {
+		location / {
+			root $root_path;
+
+		}
+	}
+}
+EOF
+)
+
+index_content="Hello World!"
+
+echo "Creating the web root folder @ $root_path"
+mkdir -p "$root_path"
+echo "$index_content" > "$root_path/index.html"
+
+echo "Adding the configuration file @ $config_file"
+echo "$config_content" > "$config_file"
+
+
+echo "Starting the server..."
+
+systemctl start nginx.service
+
+if [ "$?" == "0" ]; then
+	echo "Server Started successfully"
+else
+	echo "Unable to start the server for some reason"
+fi
