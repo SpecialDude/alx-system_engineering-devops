@@ -28,15 +28,15 @@ EOF
 
 index_content="Hello World!"
 
-echo "Creating the web root folder @ $root_path"
+# echo "Creating the web root folder @ $root_path"
 mkdir -p "$root_path"
 echo "$index_content" > "$root_path/index.html"
 
-echo "Adding the configuration file @ $config_file"
+# echo "Adding the configuration file @ $config_file"
 echo "$config_content" > "$config_file"
 
 
-echo "Starting the server..."
+# echo "Starting the server..."
 
 systemctl start nginx.service
 
