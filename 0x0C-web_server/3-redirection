@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# This Scripts configures Nginx on a Web Server
+# Install and configure nginx on a web server and  redirects
+
 
 config_file="/etc/nginx/nginx.conf"
 root_path="/data/www/"
@@ -36,17 +37,22 @@ index_content="Hello World!"
 echo "Installing nginx server..."
 apt-get -y update
 apt-get -y install nginx
-ufw allow "Nginx HTTP"
+ufw allow 'Nginx HTTP'
 
-# echo "Creating the web root folder @ $root_path"
+# echo "Hello World!" > sudo /var/www/html/index.nginx-debian.html
+
+echo "Creating the web root folder @ $root_path"
 mkdir -p "$root_path"
 echo "$index_content" > "$root_path/index.html"
 
-# echo "Adding the configuration file @ $config_file"
+echo "Adding the configuration file @ $config_file"
 echo "$config_content" > "$config_file"
 
+sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 
-# echo "Starting the server..."
+
+echo "Starting the server..."
+
 
 service nginx start
 
