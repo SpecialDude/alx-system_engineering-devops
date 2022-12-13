@@ -38,9 +38,8 @@ echo "$config_content" > "$config_file"
 
 # echo "Starting the server..."
 
-systemctl start nginx.service
 
-if [ "$?" == "0" ]; then
+if [ "$(systemctl start nginx.service)" ]; then
 	echo "Server Started successfully"
 else
 	echo "Unable to start the server for some reason"
