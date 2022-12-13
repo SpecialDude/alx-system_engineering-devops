@@ -38,7 +38,7 @@ echo "$config_content" > "$config_file"
 
 # echo "Starting the server..."
 
-systemctl restart nginx.service
+service nginx start
 
 if [ "$?" == "0" ]; then
 	echo "Server Started successfully"
