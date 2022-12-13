@@ -17,6 +17,11 @@ events {
 
 http {
 	server {
+		listen         80 default_server;
+		listen         [::]:80 default_server;
+		server_name    theegsd.tech www.theegsd.tech;
+		root           $root_path;
+		index          index.html;
 		location / {
 			root $root_path;
 
