@@ -26,16 +26,7 @@ http {
 EOF
 )
 
-index_content=$(cat << EOF
-<!DOCTYPE html>
-
-<html>
-	<body>
-		Hello World!
-	</body>
-</html>
-EOF
-)
+index_content="Hello World!"
 
 # echo "Creating the web root folder @ $root_path"
 mkdir -p "$root_path"
@@ -47,8 +38,9 @@ echo "$config_content" > "$config_file"
 
 # echo "Starting the server..."
 
+systemctl start nginx.service
 
-if [ "$(systemctl start nginx.service)" ]; then
+if [ "$?" == "0" ]; then
 	echo "Server Started successfully"
 else
 	echo "Unable to start the server for some reason"
