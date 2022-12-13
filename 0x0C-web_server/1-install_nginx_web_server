@@ -26,7 +26,16 @@ http {
 EOF
 )
 
-index_content="Hello World!"
+index_content=$(cat << EOF
+<!DOCTYPE html>
+
+<html>
+	<body>
+		Hello World!
+	</body>
+</html>
+EOF
+)
 
 # echo "Creating the web root folder @ $root_path"
 mkdir -p "$root_path"
