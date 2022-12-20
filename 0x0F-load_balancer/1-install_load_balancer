@@ -21,12 +21,14 @@ frontend frontendnode
 
 backend backendnode
 	balance roundrobin
-	server $SERVER1 $HOST1 check
-	server $SERVER2 $HOST2 check
+	server $SERVER1 $HOST1:80 check
+	server $SERVER2 $HOST2:80 check
 EOF
 )
 
 echo "$config_content" >> "$config_file"
+
+haproxy -f /etc/haproxy/haproxy.cfg -db
 
 service haproxy stop
 service haproxy start
