@@ -15,6 +15,7 @@ sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.co
 sed -i '/listen 80 default_server/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
 sed -i "/listen 80 default_server/a add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-available/default
 
+service nginx stop
 service nginx start
 
 if service nginx start;
