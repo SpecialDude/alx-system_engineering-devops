@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This scripts configures a new server with a custom header
+
+root_dir="/var/www/html"
+
+apt-get -y update
+apt-get -y install nginx
+
+sudo ufw allow 'Nginx HTTP'
+
+echo "Hello World!" > "$root_dir/index.html"
+echo "Ceci n'est pas une page" > "$root_dir/404.html"
+
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server/a add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-available/default
+
+service nginx start
+
+if service nginx start;
+then
+	echo "Server Started successfully"
+else
+	echo "Unable to start the server for some reason"
+fi
