@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# This script installs a load balancer
+
+apt-get -y update
+apt-get -y install haproxy
+
+echo 'ENABLED=1' >> /etc/default/haproxy
+
+
+SERVER1="51953-web-01"
+HOST1="35.168.8.57"
+SERVER2="51953-web-02"
+HOST2="3.84.222.106"
+config_file="/etc/haproxy/haproxy.cfg"
+
+config_content=$(cat << EOF
+frontend frontendnode
+	bind *:80
+	mode http
+	default_backend backendnode
+
+backend backendnode
+	balance roundrobin
+	server $SERVER1 $HOST1 check
+	server $SERVER2 $HOST2 check
+EOF
+)
+
+echo "$config_content" >> "$config_file"
+
+service haproxy stop
+service haproxy start
