@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This script looks up a domain name
+
+dig_domain ()
+{
+	server="$1.$2"
+	query_result=$(dig "$server" | grep 'ANSWER SECTION:' -A1)
+
+
+	echo -n "The subdomain $1 is a "
+
+	echo "$query_result" | awk -F ' ' '{printf $4}'
+	echo -n " record and points to "
+	echo "$query_result" | awk -F ' ' '{printf $5}'
+	echo ""
+}
+
+if  [ "$2" ]; then
+	dig_domain "$2" "$1"
+else
+	for subdomain in "www" "lb-01" "web-01" "web-02"
+	do
+		dig_domain "$subdomain" "$1"
+	done
+fi
