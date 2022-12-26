@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # This script debugs a server (Simplified)
-
-
+sudo apt-get purge nginx nginx-common nginx-full
+sudo apt-get -y install nginx
+sudo service nginx start
