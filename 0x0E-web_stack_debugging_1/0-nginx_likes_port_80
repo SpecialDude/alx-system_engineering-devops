@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # This scripts debugs a server and restarts it
 
-fuser -k 80/tcp
-sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+sudo service nginx stop
+sudo apt-get purge nginx nginx-common nginx-full
+sudo apt-get -y update && sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+sudo fuser -k 80/tcp
+# sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+sudo service nginx start
