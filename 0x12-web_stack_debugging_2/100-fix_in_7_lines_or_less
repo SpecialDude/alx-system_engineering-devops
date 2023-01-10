@@ -2,6 +2,6 @@
 # Runs nginx as a user named nginx
 sed -i "s/#user www-data/user ngnix/" /etc/nginx/nginx.conf
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
-chmod -R 777 /etc/nginx/nginx.conf
+chmod -R 777 /etc/nginx/
 pkill apache2
-sudo -u nginx service nginx restart
+sudo -u nginx nginx -c /etc/nginx/nginx.conf
