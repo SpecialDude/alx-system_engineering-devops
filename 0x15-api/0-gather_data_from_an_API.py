@@ -3,9 +3,9 @@
 """This module makes request to an API"""
 
 
+import json
 import requests
 import sys
-import json
 
 
 def main():
@@ -38,7 +38,7 @@ def main():
     # Outputs
 
     print("Employee {} is done with".format(employee_name), end=" ")
-    print("tasks({}/{})".format(len(completed_todos), len(employee_todos)))
+    print("tasks({}/{}):".format(len(completed_todos), len(employee_todos)))
     for todo in completed_todos:
         print("\t {}".format(todo["title"]))
 
